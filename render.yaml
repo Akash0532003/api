@@ -5,4 +5,4 @@ services:
     repo: https://github.com/Akash0532003/api
     branch: main
     rootDir: .
-    dockerfilePath: ./Dockerfile
+    dockerfilePath: Dockerfile
