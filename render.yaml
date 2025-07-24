@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: placify
+    env: php
+    plan: free
+    repo: https://github.com/Akash0532003/api
+    branch: main
+    buildCommand: ""
+    startCommand: ""
+    rootDir: .
