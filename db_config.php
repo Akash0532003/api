@@ -7,7 +7,7 @@ $dbname = "if0_39549148_alumni";  // Replace with your actual database name
 // Function to establish database connection
 function db_connect() {
     global $servername, $username, $password, $dbname;
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysql($servername, $username, $password, $dbname);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }else{
