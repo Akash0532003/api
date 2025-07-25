@@ -1,6 +1,6 @@
 <?php
 $servername = "bq97ovvt1aqjvnt044hk-mysql.services.clever-cloud.com";  // Replace with your actual database server name
-$username = "uokzch8m6envigph ";  // Replace with your actual database username
+$username = "uokzch8m6envigph";  // Replace with your actual database username
 $password = "zEcJUwisj6725uMHyGSb";  // Leave empty if there's no password
 $dbname = "bq97ovvt1aqjvnt044hk";  // Replace with your actual database name
 
