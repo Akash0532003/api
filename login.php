@@ -46,7 +46,7 @@ if (!$data) {
 
     $user = $users[0]; // The row returned
     $hashedPassword = $user['password'];
-    echo 'hashedPassword: ' . $hashedPassword . '<br>';
+    // echo 'hashedPassword: ' . $hashedPassword . '<br>';
         // Step 2: Verify password
     if (password_verify($user_password, $hashedPassword)) {
         // http_response_code(200);
