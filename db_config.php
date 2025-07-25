@@ -1,8 +1,8 @@
 <?php
-$servername = "sql100.infinityfree.com";  // Replace with your actual database server name
-$username = "if0_39549148 ";  // Replace with your actual database username
-$password = "Akash7904254165";  // Leave empty if there's no password
-$dbname = "if0_39549148_alumni";  // Replace with your actual database name
+$servername = "bq97ovvt1aqjvnt044hk-mysql.services.clever-cloud.com";  // Replace with your actual database server name
+$username = "uokzch8m6envigph ";  // Replace with your actual database username
+$password = "irBaekYguadGuzKQQNdu";  // Leave empty if there's no password
+$dbname = "bq97ovvt1aqjvnt044hk";  // Replace with your actual database name
 
 // Function to establish database connection
 function db_connect() {
