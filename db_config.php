@@ -23,7 +23,7 @@ function db_connect() {
         // echo "Database connection established successfully.\n";
 
 }
-    echo "Database connection established successfully.\n";
+    // echo "Database connection established successfully.\n";
 
 // Function to execute INSERT, UPDATE, DELETE queries
 function db_query($sql) {
