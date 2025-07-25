@@ -90,7 +90,6 @@ $selects = db_select("SELECT * FROM al_events WHERE status = '1' ORDER BY id DES
 
 
 // ✅ Send response at the end
-ob_clean(); // clear any prior output
 echo json_encode($response);
 exit;
 ?>

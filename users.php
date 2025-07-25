@@ -88,7 +88,6 @@ if($_REQUEST['apiKey']=='ALUMNIAPIKEY0512')
 
 
 // ✅ Send response at the end
-ob_clean(); // clear any prior output
 echo json_encode($response);
 exit;
 ?>
