@@ -1,22 +1,14 @@
 <?php
-// Include database configuration
-include '../db_config.php';
-
-// Allow requests from any origin (for development only)
 header("Access-Control-Allow-Origin: *");
-
-// Allow the following methods
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
-// Allow specific headers
-header("Access-Control-Allow-Headers: Content-Type");
-
-// Handle preflight request (OPTIONS)
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
 }
-
+// Include database configuration
+include 'db_config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents("php://input"), true);
@@ -45,18 +37,18 @@ if (!$data) {
     // etc...
 
 
-echo "Name: $name\n";
-echo "Email: $email\n";
-echo "Mobile: $mobile\n";
-echo "Password: $user_password\n";
-echo "Department: $dept\n";
-echo "Category: $category\n";
-echo "Passed Out: $passedout\n";
-echo "Current: $current\n";
-echo "Designation: $designation\n";
-echo "Skills: $skills\n";
-echo "Certified: $certified\n";
-echo "CGPA: $cgpa\n";
+// echo "Name: $name\n";
+// echo "Email: $email\n";
+// echo "Mobile: $mobile\n";
+// echo "Password: $user_password\n";
+// echo "Department: $dept\n";
+// echo "Category: $category\n";
+// echo "Passed Out: $passedout\n";
+// echo "Current: $current\n";
+// echo "Designation: $designation\n";
+// echo "Skills: $skills\n";
+// echo "Certified: $certified\n";
+// echo "CGPA: $cgpa\n";
     
     $query = db_query("INSERT INTO al_users (user_name,email, mobile, password, dept,category,passedout,current,designation,Skills,Certified,cgpa  ) 
                        VALUES ('$name', '$email', '$mobile', '$user_password', '$dept', '$category', '$passedout', '$current', '$designation', '$skills', '$certified', '$cgpa')");

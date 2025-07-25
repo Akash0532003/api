@@ -1,21 +1,14 @@
 <?php
-// Include database configuration
-include '../db_config.php';
-
-// Allow requests from any origin (for development only)
 header("Access-Control-Allow-Origin: *");
-
-// Allow the following methods
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
-// Allow specific headers
-header("Access-Control-Allow-Headers: Content-Type");
-
-// Handle preflight request (OPTIONS)
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
 }
+// Include database configuration
+include 'db_config.php';
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -29,8 +22,7 @@ if (!$data) {
 }
 
 $apitype = $_REQUEST['apiType'];
-echo "apitype: " . $apitype . "<br>";
-echo "apiKey: " . $_REQUEST['apiKey'] . "<br>";
+
 
 $user_id = isset($data['user_id']) ? $data['user_id'] : ''; // Get user ID from request
 

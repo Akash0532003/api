@@ -1,21 +1,14 @@
 <?php
-// Include database configuration
-include '../db_config.php';
-
-// Allow requests from any origin (for development only)
 header("Access-Control-Allow-Origin: *");
-
-// Allow the following methods
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
-// Allow specific headers
-header("Access-Control-Allow-Headers: Content-Type");
-
-// Handle preflight request (OPTIONS)
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
 }
+// Include database configuration
+include 'db_config.php';
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -30,15 +23,12 @@ if (!$data) {
 
 $apitype = $_REQUEST['apiType'];
 $apiKey = $_REQUEST['apiKey'];
-echo "apitype: " . $apitype . "<br>";
-echo "apiKey: " . $_REQUEST['apiKey'] . "<br>";
+
 
 
 
 if($_REQUEST['apiKey']=='ALUMNIAPIKEY0512')
 {
-
-echo "API Key is valid.<br>";
 
     // Check the API type
  if($apitype === 'addevent'){
@@ -57,14 +47,14 @@ echo "API Key is valid.<br>";
     $apitype = isset($data['apitype']) ? $data['apitype'] : ''; 
 
 
-    echo 'event_name: ' . $event_name . '<br>';
-    echo 'event_date: ' . $event_date . '<br>';
-    echo 'event_time: ' . $event_time . '<br>';
-    echo 'location: ' . $location . '<br>';
-    echo 'description: ' . $description . '<br>';
-    echo 'image: ' . $image . '<br>';
-    echo 'imagePath: ' . $imagePath. '<br>';
-    echo 'Status: ' . $Status . '<br>';
+    // echo 'event_name: ' . $event_name . '<br>';
+    // echo 'event_date: ' . $event_date . '<br>';
+    // echo 'event_time: ' . $event_time . '<br>';
+    // echo 'location: ' . $location . '<br>';
+    // echo 'description: ' . $description . '<br>';
+    // echo 'image: ' . $image . '<br>';
+    // echo 'imagePath: ' . $imagePath. '<br>';
+    // echo 'Status: ' . $Status . '<br>';
 
     
     $insert = db_query("INSERT INTO al_events (event_name,event_date, event_time, location, description, image, created_date,status) 
