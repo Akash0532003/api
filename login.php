@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 // Include database configuration
-include '../db_config.php';
+include 'db_config.php';
 
 
 
@@ -88,3 +88,4 @@ exit;
 
 
 ?>
+
