@@ -1,14 +1,14 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Allow-Headers: Content-Type");
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
 }
 
 // Include database configuration
-include 'db_config.php';
+include '../db_config.php';
 
 
 
@@ -66,7 +66,9 @@ if (!$data) {
                         'designation' => $user['designation'],
                         'skills' => $user['Skills'],
                         'certified' => $user['Certified'],
-                        'cgpa' => $user['cgpa']
+                        'cgpa' => $user['cgpa'],
+                        'status' => $user['status'],
+                        'user_type' => $user['user_type']
                     ]
                 ];
     } else {
@@ -81,6 +83,7 @@ if (!$data) {
 }
 
 // ✅ Send response at the end
+ob_clean(); // clear any prior output
 echo json_encode($response);
 exit;
 
