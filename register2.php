@@ -20,7 +20,11 @@ if (!$data) {
     exit;
 }
 
+$apitype = $_REQUEST['apiType'];
 
+if( $_REQUEST['apiKey'] == 'ALUMNIAPIKEY0512' ) {
+
+    if($apitype  == 'Consumer'){
     // Access values like:
     $name = $data['name'];
     $email = $data['email'];
@@ -58,6 +62,19 @@ if ($query) {
         $response = ['code' => 200, 'message' => 'User registered successfully.'];
 } else {
         $response = ['code' => 400, 'message' => 'User not registered successfully.'];
+
+}
+}
+}elseif($apitype == 'Corpprofile'){
+
+    $name = $data['companyname'];
+    $email = $data['companyemail'];
+    $mobile = $data['companymobile'];
+    $user_password = isset($data['companypassword']) ? password_hash($data['companypassword'], PASSWORD_BCRYPT) : '';
+
+        $query = db_query("INSERT INTO al_users (user_name,email, mobile, password) 
+                       VALUES ('$name', '$email', '$mobile', '$user_password')");
+
 
 }
 
