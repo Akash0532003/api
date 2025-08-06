@@ -65,7 +65,7 @@ if ($query) {
 
 }
 }
-}elseif($apitype == 'Corpprofile'){
+elseif($apitype == 'Corpprofile'){
 
     $name = $data['companyname'];
     $email = $data['companyemail'];
@@ -75,9 +75,15 @@ if ($query) {
         $query = db_query("INSERT INTO al_users (user_name,email, mobile, password) 
                        VALUES ('$name', '$email', '$mobile', '$user_password')");
 
+if ($query) {
+        $response = ['code' => 200, 'message' => 'corporate registered successfully.'];
+} else {
+        $response = ['code' => 400, 'message' => 'corporate registered successfully.'];
 
 }
 
+}
+}
 } else {
     http_response_code(405);
      $response = ['code' => 500, 'message' => 'Method Not Allowed'];
