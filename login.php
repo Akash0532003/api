@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 // Include database configuration
-include '../db_config.php';
+include 'db_config.php';
 
 
 
@@ -83,8 +83,8 @@ if (!$data) {
 }
 
 // ✅ Send response at the end
-ob_clean(); // clear any prior output
 echo json_encode($response);
 exit;
+
 
 ?>
