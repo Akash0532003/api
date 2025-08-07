@@ -54,7 +54,7 @@ if( $_REQUEST['apiKey'] == 'ALUMNIAPIKEY0512' ) {
 // echo "Certified: $certified\n";
 // echo "CGPA: $cgpa\n";
     
-    $query = db_query("INSERT INTO al_users (user_name,email, mobile, password, dept,category,passedout,current,designation,Skills,Certified,cgpa  ) 
+    $query = db_query("INSERT INTO al_users (user_name,email, mobile, password, dept,category,passedout,current,designation,Skills,Certified,cgpa ) 
                        VALUES ('$name', '$email', '$mobile', '$user_password', '$dept', '$category', '$passedout', '$current', '$designation', '$skills', '$certified', '$cgpa')");
 
     // Check if the query was successful
@@ -95,4 +95,5 @@ echo json_encode($response);
 exit; 
 
 ?>
+
 
