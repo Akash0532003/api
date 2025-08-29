@@ -32,7 +32,7 @@ if($_REQUEST['apiKey']=='ALUMNIAPIKEY0512')
 
     if($apitype  == 'user_list'){
 
-    $selects = db_select("SELECT * FROM al_users WHERE status = '1' ");
+    $selects = db_select("SELECT * FROM al_users WHERE status = '1' AND user_type='consumer' ");
     if (!empty($selects)) {
     $response = ['code' => 200, 'users' => $selects];
     } else {
@@ -91,3 +91,4 @@ if($_REQUEST['apiKey']=='ALUMNIAPIKEY0512')
 echo json_encode($response);
 exit;
 ?>
+
