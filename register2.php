@@ -72,8 +72,8 @@ elseif($apitype == 'Corpprofile'){
     $mobile = $data['companymobile'];
     $user_password = isset($data['companypassword']) ? password_hash($data['companypassword'], PASSWORD_BCRYPT) : '';
 
-        $query = db_query("INSERT INTO al_users (user_name,email, password, status, user_type) 
-                       VALUES ('$name', '$email', '$user_password', '1', 'Corporate')");
+        $query = db_query("INSERT INTO al_users (user_name, mobile, email, password, status, user_type) 
+                       VALUES ('$name', '$mobile', '$email', '$user_password', '1', 'Corporate')");
 if ($query) {
         $response = ['code' => 200, 'message' => 'corporate registered successfully.'];
 } else {
@@ -95,6 +95,7 @@ echo json_encode($response);
 exit; 
 
 ?>
+
 
 
 
