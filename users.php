@@ -75,7 +75,17 @@ if($_REQUEST['apiKey']=='ALUMNIAPIKEY0512')
             $response = ['code' => 400, 'error' => 'Invalid data provided.'];
         }
 
-    }else {
+    } else if ($apitype  == 'corporate_list'){
+
+        $selects = db_select("SELECT * FROM al_users WHERE status = '1' AND user_type='Corporate' ");
+        if (!empty($selects)) {
+        $response = ['code' => 200, 'corporates' => $selects];
+        } else {
+        $response = ['code' => 400, 'Data' => 'No corporate users found.'];
+        }
+
+    }
+else {
     $response = ['code' => 400, 'error' => 'Invalid API type.'];
 
 }
@@ -91,4 +101,5 @@ if($_REQUEST['apiKey']=='ALUMNIAPIKEY0512')
 echo json_encode($response);
 exit;
 ?>
+
 
