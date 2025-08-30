@@ -77,7 +77,7 @@ if($_REQUEST['apiKey']=='ALUMNIAPIKEY0512')
 
     } else if ($apitype  == 'corporate_list'){
 
-        $selects = db_select("SELECT * FROM al_users WHERE status = '1' AND user_type='Corporate' ");
+        $selects = db_select("SELECT * FROM al_users WHERE user_type='Corporate' ");
         if (!empty($selects)) {
         $response = ['code' => 200, 'corporates' => $selects];
         } else {
@@ -101,5 +101,6 @@ else {
 echo json_encode($response);
 exit;
 ?>
+
 
 
