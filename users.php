@@ -84,6 +84,25 @@ if($_REQUEST['apiKey']=='ALUMNIAPIKEY0512')
         $response = ['code' => 400, 'Data' => 'No corporate users found.'];
         }
 
+    }else if ($apitype  == 'update_corporate'){
+        $id = isset($data['id']) ? $data['id'] : '';
+        $user_name = isset($data['user_name']) ? $data['user_name'] : '';
+        $email = isset($data['email']) ? $data['email'] : '';
+        $mobile = isset($data['mobile']) ? $data['mobile'] : '';
+        $Status = isset($data['Status']) ? $data['Status'] : '1';
+
+        if(!empty($id) && !empty($mobile)){
+
+            $update =db_query("UPDATE al_users SET user_name = '$user_name', email = '$email', mobile = '$mobile', status = '$Status' WHERE id = '$id'");
+            if($update){
+                $response = ['code' => 200, 'message' => 'Corporate user updated successfully.'];        
+        }else{
+                $response = ['code' => 400, 'error' => 'Failed to update corporate user.'];
+            }
+        }else{
+            $response = ['code' => 400, 'error' => 'Invalid data provided.'];
+        }
+
     }
 else {
     $response = ['code' => 400, 'error' => 'Invalid API type.'];
@@ -101,6 +120,7 @@ else {
 echo json_encode($response);
 exit;
 ?>
+
 
 
 
