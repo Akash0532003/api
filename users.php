@@ -89,7 +89,7 @@ if($_REQUEST['apiKey']=='ALUMNIAPIKEY0512')
         $user_name = isset($data['user_name']) ? $data['user_name'] : '';
         $email = isset($data['email']) ? $data['email'] : '';
         $mobile = isset($data['mobile']) ? $data['mobile'] : '';
-        $Status = isset($data['Status']) ? $data['Status'] : '1';
+        $Status = isset($data['status']) ? $data['status'] : '1';
 
         if(!empty($id) && !empty($mobile)){
 
@@ -120,6 +120,7 @@ else {
 echo json_encode($response);
 exit;
 ?>
+
 
 
 
