@@ -76,7 +76,40 @@ $selects = db_select("SELECT * FROM al_events WHERE status = '1' ORDER BY id DES
     $response = ['code' => 400, 'Data' => 'No events found.'];
     }
     
-} else {
+}elseif($apitype  == 'update_event'){
+
+        if($id){
+      
+        $event_name = isset($data['event_name']) ? $data['event_name'] : '';
+        $event_date = isset($data['event_date']) ? $data['event_date'] : '';
+        $event_time = isset($data['event_time']) ? $data['event_time'] : '';
+        $location = isset($data['location']) ? $data['location'] : '';
+        $description = isset($data['description']) ? $data['description'] : ''; 
+        $Status = isset($data['Status']) ? $data['Status'] : '1';
+
+        $update = db_query("UPDATE al_events SET 
+                            event_name = '$event_name',
+                            event_date = '$event_date',
+                            event_time = '$event_time',
+                            location = '$location',
+                            description = '$description',
+                            status = '$Status'
+                            WHERE id = '$id'");
+
+        $updated = db_select("SELECT * FROM al_events WHERE id = '$id'");
+        
+        if ($update) {
+            $response = ['code' => 200, 'message' => 'Event updated successfully.', 'event' => $updated];
+        } else {
+            $response = ['code' => 400, 'error' => 'Failed to update event.'];
+        }
+
+        }else{
+            $response = ['code' => 400, 'error' => 'Event ID is required for update.'];
+        }
+
+    } 
+else {
     $response = ['code' => 400, 'error' => 'Invalid API type.'];
 
 }
@@ -93,3 +126,4 @@ $selects = db_select("SELECT * FROM al_events WHERE status = '1' ORDER BY id DES
 echo json_encode($response);
 exit;
 ?>
+
