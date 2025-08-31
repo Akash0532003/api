@@ -77,6 +77,7 @@ $selects = db_select("SELECT * FROM al_events WHERE status = '1' ORDER BY id DES
     }
     
 }elseif($apitype  == 'update_event'){
+        $id = isset($data['id']) ? $data['id'] : '';
 
         if($id){
       
@@ -126,4 +127,5 @@ else {
 echo json_encode($response);
 exit;
 ?>
+
 
